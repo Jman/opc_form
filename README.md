@@ -9,7 +9,10 @@ Plugin uses dummy data for one user, but you can add more users and customize th
 ## Donate
 
 You can buy me a beer by donating:
-  * BTC: 1CZ19mprMusUn6whinvFBd9Uafi71aDr8H
+  * BTC: 14hYc4kWUeN1xwo3BUdixkZTHuV5cNvCMF
+  * LTC: LTPNAcQuFYUNeqgu6FyRV7CR71gs5wR79z
+  * ETH: 0x0c102c2ae13a58d8ea6524f1129af24dc738749c
+  * DSH: Xh3tBUyRkdghcbRypTuraUHS566DxVBF5i
 
 ## Release History
 
