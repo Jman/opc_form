@@ -1,15 +1,4 @@
 {
-  "extends": [
-    "prettier"
-  ],
-  "plugins": [
-    "prettier"
-  ],
-  "rules": {
-    "prettier/prettier": "error",
-    "arrow-body-style": "off",
-    "prefer-arrow-callback": "off",
-    "trailingComma": "es5",
-    "singleQuote": true
-  }
+  "trailingComma": "es5",
+  "singleQuote": true
 }

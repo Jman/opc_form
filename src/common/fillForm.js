@@ -7,12 +7,15 @@ export default function fillForm(formData) {
   selectEvent.initEvent('change', true, true);
   clickEvent.initEvent('click', true, true);
 
-  function processSelect(el, val) {
-    for (let i = 0, l = el.length; i < l; i++) {
-      if (el.options[i].value.toLowerCase() === val ||
-        el.options[i].title.toLowerCase() === val ||
-        el.options[i].innerHTML.toLowerCase() === val) {
-        el.selectedIndex = i;
+  function processSelect(elem, value) {
+    for (let index = 0, l = elem.length; index < l; index++) {
+      const options = elem.options[index];
+      if (
+        options.value.toLowerCase() === value ||
+        options.title.toLowerCase() === value ||
+        options.innerHTML.toLowerCase() === value
+      ) {
+        elem.selectedIndex = index;
       }
     }
   }
@@ -30,27 +33,37 @@ export default function fillForm(formData) {
   }
 
   Object.keys(formData).forEach(function (name) {
-    const inputs = document.querySelectorAll('[name*="' + name + '"]') ?? [];
+    const inputs = document.querySelectorAll(`[name*="${name}"]`) ?? [];
     inputs.forEach((elem) => {
       processElement(elem, formData[name]);
     });
   });
+
   // M1 Shipping
-  const m1ShippingElements = document.querySelectorAll('[name^="shipping"]') ?? [];
+  const m1ShippingElements =
+    document.querySelectorAll('[name^="shipping"]') ?? [];
   m1ShippingElements.forEach((elem) => {
-    if (formData[elem.name]) {
-      processElement(elem, formData[elem.name]);
-    }
-  });
-  // M2 Shipping
-  const m2ShippingForm = document.getElementById('co-shipping-form') ?? [];
-  [...m2ShippingForm].forEach(function (elem) {
-    if (formData['shipping[' + elem.name + ']']) {
-      processElement(elem, formData['shipping[' + elem.name + ']']);
+    const value = formData[elem.name];
+    if (value) {
+      processElement(elem, value);
     }
   });
 
-  document.getElementById('checkout-shipping-method-load')
-    .querySelector('input[type="radio"]')
-    .dispatchEvent(clickEvent);
+  // M2 Shipping
+  const m2ShippingForm = document.getElementById('co-shipping-form') ?? [];
+  [...m2ShippingForm].forEach((elem) => {
+    const value = formData[`shipping[${elem.name}]`];
+    if (value) {
+      processElement(elem, value);
+    }
+  });
+
+  const shippingMethodsForm = document.getElementById(
+    'checkout-shipping-method-load'
+  );
+  if (shippingMethodsForm) {
+    shippingMethodsForm
+      .querySelector('input[type="radio"]')
+      .dispatchEvent(clickEvent);
+  }
 }

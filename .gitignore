@@ -1,6 +1,4 @@
 .idea
 node_modules
 dist
-old_dist
-old_test
 *.zip
