@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Select User</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --color: rgba(0, 0, 0, .9);
+        --background-color: rgba(255, 255, 255, .9);
+        --shadow: #fff;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color: rgba(255, 255, 255, .9);
+        --background-color: -rgba(0, 0, 0, .9);
+        --shadow: #000;
+      }
+    }
+
+    body {
+      margin: 0;
+      color: var(--color);
+      background-color: var(--background-color);
+      text-shadow: 1px 1px 1px var(--shadow);
+    }
+
+    h1 {
+      margin: 0;
+      padding: .5em;
+      font-size: 1em;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      white-space: nowrap;
+      padding: .5em;
+      cursor: pointer;
+    }
+
+    li:hover {
+      background: rgba(78, 78, 78, .5);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="popup"></div>
+  <script src="popup.js" type="module"></script>
+</body>
+
+</html>

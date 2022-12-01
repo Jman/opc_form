@@ -1,5 +1,13 @@
 {
   "cSpell.words": [
+    "crxjs",
     "Magento"
-  ]
+  ],
+  "json.schemas": [
+    {
+      "fileMatch": ["manifest.json"],
+      "url": "https://json.schemastore.org/chrome-manifest.json"
+    }
+  ],
+  "prettier.configPath": ".prettierrc"
 }
