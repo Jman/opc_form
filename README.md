@@ -7,6 +7,10 @@ Plugin uses dummy data for one user, but you can add more users and customize th
 
 ## Release History
 
+### 2.1.0
+
+* Add Venia theme support
+
 ### 2.0.1
 
 * Add html minification
