@@ -2,6 +2,7 @@
 import { defineConfig } from 'vite';
 import { crx } from '@crxjs/vite-plugin';
 import vue from '@vitejs/plugin-vue';
+import { minify } from 'html-minifier-terser';
 import manifest from './src/manifest.config';
 
 // const root = resolve(__dirname, './src');
@@ -21,8 +22,25 @@ function additionalData(content) {
   }
 }
 
+function htmlMinifyPlugin() {
+  return {
+    name: 'html-minify-plugin',
+    enforce: 'post',
+    apply: 'build',
+    transformIndexHtml(html) {
+      return minify(html, {
+        removeComments: true,
+        collapseWhitespace: true,
+        minifyCSS: true,
+        minifyJS: true,
+        minifyURLs: true,
+      });
+    },
+  };
+}
+
 export default defineConfig({
-  plugins: [vue(), crx({ manifest })],
+  plugins: [vue(), crx({ manifest }), htmlMinifyPlugin()],
   css: {
     preprocessorOptions: {
       scss: {
