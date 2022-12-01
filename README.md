@@ -10,6 +10,7 @@ Plugin uses dummy data for one user, but you can add more users and customize th
 ### 2.0.1
 
 * Add html minification
+* Content script refactoring
 
 ### 2.0.0
 
