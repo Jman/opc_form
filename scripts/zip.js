@@ -20,5 +20,4 @@ async function createZipArchive(input, output) {
 }
 
 const { version } = await loadJson('../package.json');
-console.log(version);
 createZipArchive('dist', `${version}.zip`);
