@@ -10,8 +10,8 @@
   "country_id": "US",
   "region_id" : "California",
   "postcode"  : "90210",
-  "password"  : "password",
-  "confirm"   : "password",
+  "password"  : "Passw0rd",
+  "confirm"   : "Passw0rd",
 
   "shipping[firstname]"   : "Jane",
   "shipping[lastname]"    : "Smith",

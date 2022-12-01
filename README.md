@@ -7,6 +7,15 @@ Plugin uses dummy data for one user, but you can add more users and customize th
 
 ## Release History
 
+### 2.0.0
+
+* Update Vue to 3.2.0
+* Update manifest to v3
+* Add cloud storage support for storing users
+* Replace yarn with pnpm
+* Replace webpack with vite
+* Add eslint
+
 ### 1.1.1
 
 * Small fixes

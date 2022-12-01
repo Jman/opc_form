@@ -1,0 +1,4 @@
+# Ignore artifacts
+dist
+old_dist
+old_test
