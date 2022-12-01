@@ -1,10 +1,10 @@
 export default function fillForm(formData) {
   const keyboardEvent = document.createEvent('UiEvent');
-  const selectEvent = document.createEvent('UiEvent');
+  const changeEvent = document.createEvent('UiEvent');
   const clickEvent = document.createEvent('UiEvent');
 
   keyboardEvent.initEvent('keyup', true, true);
-  selectEvent.initEvent('change', true, true);
+  changeEvent.initEvent('change', true, true);
   clickEvent.initEvent('click', true, true);
 
   function processSelect(elem, value) {
@@ -25,9 +25,10 @@ export default function fillForm(formData) {
     if (elem.tagName.toLowerCase() === 'input') {
       elem.value = value;
       elem.dispatchEvent(keyboardEvent);
+      elem.dispatchEvent(changeEvent);
     } else if (elem.tagName.toLowerCase() === 'select') {
       processSelect(elem, value.toLowerCase());
-      elem.dispatchEvent(selectEvent);
+      elem.dispatchEvent(changeEvent);
     }
     elem.blur();
   }
@@ -65,5 +66,16 @@ export default function fillForm(formData) {
     shippingMethodsForm
       .querySelector('input[type="radio"]')
       .dispatchEvent(clickEvent);
+  }
+
+  // Venia
+  const selects = document.querySelectorAll('[name="country"],[name="region"]');
+  if (selects) {
+    selects.forEach((elem) => {
+      const value = formData[`shipping[${elem.name}_id]`];
+      if (value) {
+        processElement(elem, value);
+      }
+    });
   }
 }
