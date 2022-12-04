@@ -7,7 +7,7 @@
   @return $number;
 }
 
-$browser-context: 10;
+$browser-context: 16;
 
 @function em($pixels, $context: $browser-context) {
   @return #{math.div(strip-unit($pixels),$context)}em;

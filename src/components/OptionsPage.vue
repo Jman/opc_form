@@ -6,10 +6,10 @@
       @back="selectedIndex = -1"
     />
     <section v-if="selectedIndex > -1">
-      <user-data :form="users[selectedIndex]" @save-user="updateData" />
+      <user-form :form="users[selectedIndex]" @save-user="updateData" />
     </section>
     <section v-else>
-      <table class="user-list">
+      <table :class="$style.userList">
         <user-item
           v-for="(formData, index) in users"
           :key="`user-${index}`"
@@ -26,14 +26,14 @@
 <script>
 import OptionsHeader from './OptionsHeader.vue';
 import UserItem from './UserItem.vue';
-import UserData from './UserData.vue';
+import UserForm from './UserForm.vue';
 import defaultFormData from '../data/default.json';
 
 export default {
   components: {
     OptionsHeader,
     UserItem,
-    UserData,
+    UserForm,
   },
   data() {
     return {
@@ -76,3 +76,12 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" module>
+.userList {
+  margin: 2em 0;
+  width: 100%;
+  border-radius: 0.5em;
+  box-sizing: border-box;
+}
+</style>
