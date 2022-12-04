@@ -5,13 +5,55 @@ body {
 }
 
 body {
-  font: 10px $ff;
+  font: $fz $ff;
   letter-spacing: .1ex;
-  width: 64em;
-  padding: 6em 1em;
+  padding: 4.5em 0;
   box-sizing: border-box;
   margin: 0 auto;
+  width: 90%;
   text-align: center;
   color: $c-text;
   text-shadow: 1px 1px 1px var(--shadow);
+}
+header {
+  position: fixed;
+  padding: 1em 5%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: right;
+  z-index: 1;
+  background: #fff;
+  box-shadow: 0 1px 1px rgba(#4e4e4e, 0.5);
+}
+
+h1 {
+  margin: 0;
+  float: left;
+  text-align: left;
+  font: 500 1.25em /#{em(40, 20)} $ff;
+}
+
+table {
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+tr {
+  cursor: pointer;
+  transition: 0.3s ease-out;
+
+  &:nth-child(odd) {
+    background: rgba($c-border, 0.05);
+  }
+
+  &:hover {
+    background: rgba($c-border, 0.1);
+  }
+}
+
+td,
+th {
+  padding: 1em;
 }
